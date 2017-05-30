@@ -92,6 +92,15 @@ bot.on('message', function(message) {
             var random = Math.floor(Math.random()*amount)
             message.channel.sendFile("memes/" + random + ".jpg")
             break;
+        case "update":
+            if(!message.member.id ===264312374931095552){return}
+            bot.user.setGame(prefix + "help - commmands!");
+            bot.user.setPresence({status: "online"});
+            break;
+        case "off":
+            if(!message.member.id ===264312374931095552){return}
+            bot.user.setPresence({status: "offline"});
+            break;
         default:
             message.reply("That's not a command! Did you spell something incorrectly? :thinking:");
     };
