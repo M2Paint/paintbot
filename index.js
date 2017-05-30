@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 const bot = new discord.Client();
-var prefix = "m2.";
+var prefix = "!";
 bot.on('ready', function() {
     console.log('PaintBot has been loaded!')
     bot.user.setGame(prefix + "help - commmands!");
