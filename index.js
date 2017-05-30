@@ -1,12 +1,11 @@
 const discord = require("discord.js");
 const bot = new discord.Client();
-var prefix = "!";
+var prefix = "m2.";
 bot.on('ready', function() {
     console.log('PaintBot has been loaded!')
     bot.user.setGame(prefix + "help - commmands!");
     bot.user.setPresence({status: "online"});
 });
-var memes
 var riddles = [
     "What can travel around the world while staying in a corner?",
     "What has a head and a tail, but no body?",
@@ -89,17 +88,9 @@ bot.on('message', function(message) {
             });
             break;
         case "meme":
-            var amount = 47
+            var amount = 46
             var random = Math.floor(Math.random()*amount)
             message.channel.sendFile("memes/" + random + ".jpg")
-            break;
-        case "prefix":
-            if(!message.member.hasPermission("ADMINISTRATOR")) {return}
-            if (args[1]) {
-                prefix = args[1]
-                message.reply("The prefix is now " + args[1])
-                bot.user.setGame(args[1] + "help - commands!");
-            };
             break;
         default:
             message.reply("That's not a command! Did you spell something incorrectly? :thinking:");
